@@ -1,48 +1,48 @@
-resource "azurerm_resource_group" "acc_example" {
-  name     = "accexample-rg"
-  location = "East US"
+#this is exampel for existing azure resource group and vnet
+data "azurerm_resource_group" "acc_rg" {
+  name = var.resource_group_name
 }
 
-resource "azurerm_virtual_network" "acc_example" {
-  name                = "accexample-vnet"
-  location            = azurerm_resource_group.acc_example.location
-  resource_group_name = azurerm_resource_group.acc_example.name
-  address_space       = ["10.0.0.0/16"]
+data "azurerm_virtual_network" "acc_vnet" {
+  name                = var.acc_virtualnetwork
+  #location            = data.azurerm_resource_group.acc_rg.location
+  resource_group_name = data.azurerm_resource_group.acc_rg.name
+  #address_space       = data.azurerm_virtual_network.acc_vnet.address_space
 }
 
-resource "azurerm_subnet" "acc_example" {
-  name                 = "accexample-subnet"
-  resource_group_name  = azurerm_resource_group.acc_example.name
-  virtual_network_name = azurerm_virtual_network.acc_example.name
-  address_prefixes     = ["10.0.1.0/24"]
+data "azurerm_subnet" "acc_subnet" {
+  name                 = var.acc_virtualsubnet
+  resource_group_name  = data.azurerm_resource_group.acc_rg.name
+  virtual_network_name = data.azurerm_virtual_network.acc_vnet.name
+  #address_prefixes     = data.azurerm_subnet.acc_subnet.address_prefixes
 }
 
-data "azuread_service_principal" "acc_example" {
+data "azuread_service_principal" "acc_principal" {
   display_name = "Azure Cosmos DB"
 }
 
-resource "azurerm_role_assignment" "acc_example" {
-  scope                = azurerm_virtual_network.acc_example.id
+resource "azurerm_role_assignment" "acc_role" {
+  scope                = data.azurerm_virtual_network.acc_vnet.id
   role_definition_name = "Network Contributor"
-  principal_id         = data.azuread_service_principal.acc_example.object_id
+  principal_id         = data.azuread_service_principal.acc_principal.object_id
 }
 
-resource "azurerm_cosmosdb_cassandra_cluster" "acc_example" {
+resource "azurerm_cosmosdb_cassandra_cluster" "acc_cluster" {
   name                           = "accexample-cluster"
-  resource_group_name            = azurerm_resource_group.acc_example.name
-  location                       = azurerm_resource_group.acc_example.location
-  delegated_management_subnet_id = azurerm_subnet.acc_example.id
+  resource_group_name            = data.azurerm_resource_group.acc_rg.name
+  location                       = data.azurerm_resource_group.acc_rg.location
+  delegated_management_subnet_id = data.azurerm_subnet.acc_subnet.id
   default_admin_password         = var.acc_pswd
   version                        = "4.0"
 
-  depends_on = [azurerm_role_assignment.acc_example]
+  depends_on = [azurerm_role_assignment.acc_role]
 }
 
-resource "azurerm_cosmosdb_cassandra_datacenter" "acc_example" {
+resource "azurerm_cosmosdb_cassandra_datacenter" "acc_datacenter" {
   name                           = "accexample-datacenter"
-  location                       = azurerm_cosmosdb_cassandra_cluster.acc_example.location
-  cassandra_cluster_id           = azurerm_cosmosdb_cassandra_cluster.acc_example.id
-  delegated_management_subnet_id = azurerm_subnet.acc_example.id
+  location                       = data.azurerm_resource_group.acc_rg.location
+  cassandra_cluster_id           = azurerm_cosmosdb_cassandra_cluster.acc_cluster.id
+  delegated_management_subnet_id = data.azurerm_subnet.acc_subnet.id
   node_count                     = 3
   disk_count                     = 4
   sku_name                       = var.acc_sku
