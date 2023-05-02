@@ -1,6 +1,7 @@
 #########################################################
 # Local variables, modify for your needs                #
 #########################################################
+#These are required variable for creating a Azure Managed Instance Apache Cassandra Datacenter Cluster
 locals {
   rg_name                     = "accexample-rg"
   rg_location                 = "East US"      
@@ -20,7 +21,6 @@ locals {
   }
 }
 
-#This example creates an Azure Managed Instance Cassandra Datacenter cluster
 resource "azurerm_resource_group" "ac_example" {
   name     = local.rg_name
   location = local.rg_location
