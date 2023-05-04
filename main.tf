@@ -37,19 +37,20 @@ resource "azurerm_cosmosdb_cassandra_cluster" "acc_cluster" {
   location                       = data.azurerm_resource_group.acc_rg.location
   delegated_management_subnet_id = data.azurerm_subnet.acc_subnet.id
   default_admin_password         = var.acc_pswd
-  version                        = "4.0"
+  version                        = var.acc_version
 
   depends_on = [azurerm_role_assignment.acc_role]
 }
 
 #Create the Managed Instance Apache Cassandra Datacenter 
+##You can sepcify Intel Recommended SKU- (See README.MD for details) the default is Standard_D8s_v5
 resource "azurerm_cosmosdb_cassandra_datacenter" "acc_datacenter" {
   name                           = "accexample-datacenter"
   location                       = data.azurerm_resource_group.acc_rg.location
   cassandra_cluster_id           = azurerm_cosmosdb_cassandra_cluster.acc_cluster.id
   delegated_management_subnet_id = data.azurerm_subnet.acc_subnet.id
-  node_count                     = 3
-  disk_count                     = 4
+  node_count                     = var.node_count
+  disk_count                     = var.disk_count
   sku_name                       = var.acc_sku
-  availability_zones_enabled     = false
+  availability_zones_enabled     = var.availability_zones_enabled
 }
