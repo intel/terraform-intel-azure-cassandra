@@ -3,12 +3,11 @@
 ########################
 
 #Azure Managed Instance Apache Cassandra SKU
-#The D-v5 and E-v5 series run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake)
 #The D-v4 and E-v4 series run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake), the Intel® Xeon® Platinum 8272CL (Cascade Lake) processors, or the Intel® Xeon® Platinum 8168 (Skylake) processors.
 
 #For Azure Managed Instance Data Center Supported Intel SKU are:
-#Standard_D32s_v4, Standard_E8s_v4, Standard_E16s_v4, Standard_E20s_v4, Standard_E32s_v4
-
+#Standard_D16s_v4, Standard_D32s_v4, Standard_D8s_v4, Standard_DS12_v2, Standard_DS14_v2, Standard_E8s_v4, Standard_E16s_v4, Standard_E20s_V4, Standard_E32s_v4
+#For further details refer to README.MD
 
 variable "acc_sku" {
 description = "Instance SKU, see comments above for guidance"
