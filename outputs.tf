@@ -21,3 +21,8 @@ output "acc_datacenter_sku" {
   description = "ACC Datacetner SKU"
   value       =  azurerm_cosmosdb_cassandra_datacenter.acc_datacenter.sku_name
 }
+
+output "acc_cluster_id" {
+  description = "ACC Cluster ID"
+  value       =  azurerm_cosmosdb_cassandra_datacenter.acc_datacenter.cassandra_cluster_id
+}

@@ -15,6 +15,26 @@ description = "Instance SKU, see comments above for guidance"
   default     = "Standard_E8s_v4"
 }
 
+
+variable "enable_intel_tags" {
+  type    = bool
+    default = true
+  description = "If true adds additional Intel tags to resources"
+}
+variable "tags" {
+  default     = {}
+  type        = map(string)
+  description = "A mapping of tags to assign to all resources."
+}
+variable "intel_tags" {
+  default     = {
+    intel-registry = "https://registry.terraform.io/namespaces/intel"
+    intel-module   = "terraform-intel-aws-elasticache-redis"
+  }
+  type        = map(string)
+  description = "Intel Tags"
+}
+
 ########################
 ####    Required    ####
 ########################
@@ -47,6 +67,10 @@ variable "acc_pswd" {
   }
 }
 
+
+########################
+####     Other      ####
+########################
 #Cassandra cluster version (option is 3.11 or 4.0)
 variable "acc_version"  {
   description = "The version of Apache Cassandra"
@@ -70,6 +94,9 @@ variable "disk_count"  {
   description = "Cassandra cluster Disk Count "
    default    = "4"
 }
-########################
-####     Other      ####
-########################
+
+#Managed Disk Custome Key URI
+variable "managed_disk_customer_key_uri" {
+description = "The key URI of the customer key to use for the encryption of the Managed Disk."
+default     = null
+}
