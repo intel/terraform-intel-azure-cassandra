@@ -26,8 +26,6 @@ NOTE: Please be aware as of May 2023, there is a known discrepency between what 
 
 ## Usage
 
-See examples folder for code ./examples/intel-optimized-postgresql-server/main.tf
-
 Example of main.tf
 
 ```hcl
@@ -105,6 +103,13 @@ module "module-example" {
   source = "github.com/intel/module-name"
 }
 
+**Usage Considerations**
+
+<p>
+
+* **Prerequisites:**
+
+  1. Have an existing Azure Resource Group in the region you want to deploy the Azure Cassandra Datacenter 
 ```
 
 Run Terraform
