@@ -29,7 +29,7 @@ variable "tags" {
 variable "intel_tags" {
   default     = {
     intel-registry = "https://registry.terraform.io/namespaces/intel"
-    intel-module   = "terraform-intel-aws-elasticache-redis"
+    intel-module   = "terraform-intel-azure-cassandra"
   }
   type        = map(string)
   description = "Intel Tags"
