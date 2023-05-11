@@ -111,4 +111,55 @@ Note that this example may create resources. Run `terraform destroy` when you do
 
 ## Considerations  
 This module example will take approx. 20+min to complete 
+
 Make sure that the "Azure Cosmos DB" prinicpal has not already been assigned the "Network Contributor" role to the vnet as this will assign it
+
+More information regarding deploying Azure Managed Instance Apache Cassandra can be found here: [Azure Apache Cassandra] Datacenter(https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_datacenter)
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.3.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~>3.52.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~>3.52.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [azurerm_cosmosdb_cassandra_datacenter](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_datacenter) | resource |
+
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_acc_sku"></a> [acc\_sku](#input\_acc\_sku) | ACC Datacenter SKU, see comments above for guidance. | `string` | `"Standard_E8s_v4"` | no |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Existing Resource Group where Apache Cassandra Datacneter reosurce will be created. | `string` | n/a | yes |
+| <a name="input_acc_virtualnetwork"></a> [acc\_virtualnetwork](#input\_acc\_virtualnetwork) | Virtual Network Name. It should already exist. | `string` | n/a | yes |
+| <a name="input_acc_virtualsubnet"></a> [acc\_virtualsubnet](#input\_acc\_virtualsubnet) | Name of the  subnet in your virtual network for your Cassandra Managed Instance. It should already exist.| `string` | n/a | yes |
+| <a name="input_acc_pswd"></a> [acc\_pswd](#input\_acc\_pswd) | "Password for the master database user. | `string` | n/a | yes |
+
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_acc_rg_name"></a> [acc\_rg\_name](#output\acc\_rg\_name) | ACC RG Name |
+| <a name="output_acc_rg_location"></a> [acc\_rg\_location](#output\_acc\_rg\_location) | ACC RG Location |
+| <a name="output_acc_vnet_name"></a> [acc\_vnet\_name](#output\_acc\_vnet\_name) | ACC vNET Name |
+| <a name="output_acc_subnet_name"></a> [acc\_subnet\_name](#output\_acc\_subnet\_name) | ACC Subnet Name |
+| <a name="output_acc_datacenter_sku"></a> [acc\_datacenter\_sku](#output\_acc\_datacenter\_sku) | ACC Datacenter SKU |
+| <a name="output_acc_cluster_id"></a> [acc\_cluster\_id](#output\_acc\_cluster\_id) | ACC Cluster ID |
+<!-- END_TF_DOCS -->
