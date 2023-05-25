@@ -20,7 +20,39 @@ DSv2-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice L
 
 The D-v4 and E-v4 series run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake), the Intel® Xeon® Platinum 8272CL (Cascade Lake) processors, or the Intel® Xeon® Platinum 8168 (Skylake) processors.
 
-NOTE: Please be aware as of May 2023, there is a known discrepency between what is listed as supported SKU's in the Azure Managed Instance Apache Cassandra pricing documenation and what is actually supported in teh portal/cli: Azure Managed Instance Apache Cassandra price documentation indicates support for Ev5, Dv5 and Lv3 SKUs but on the Azure portal itself only Ev4, Dv4 and Dv3 are supported- this is also true for CLI. 
+NOTE: Please be aware as of May 2023, there is a known discrepency between what is listed as supported SKU's in the Azure Managed Instance Apache Cassandra pricing documenation and what is actually supported in teh portal/cli: Azure Managed Instance Apache Cassandra price documentation indicates support for Ev5, Dv5 and Lv3 SKUs but on the Azure portal itself only Ev4, Dv4 and Dv3 are supported- this is also true for CLI. Thus, we have given approcximate gen-on-on improvements for benchmarks of similar database workloads below such as for MySQL and PostgreSQL on D-v4 and E-v4 series of Azure instances when compared to older generation D-v3 and E-v3 Azure instances.
+
+
+
+<center>
+
+#### [On MySQL™ Workloads, New Microsoft Azure Dv4 Virtual Machines with 2nd Gen Intel® Xeon® Scalable Processors Outperformed Dv3 VMs by up to 1.53x](https://www.intel.com/content/www/us/en/partner/workload/microsoft/azure-dv4-vms-outperform-dv3-benchmark.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/partner/workload/microsoft/azure-dv4-vms-outperform-dv3-benchmark.html">
+  <img src="https://github.com/intel/terraform-intel-azure-cassandra/images/mysql_dv4.png?raw=true" alt="Cassandra" width="600"/>
+  </a>
+</p>
+
+#
+
+#### [Get 1.53x More MySQL Performance by Selecting Newer Microsoft Azure Edv4 Virtual Machines Featuring 2nd Gen Intel Xeon Scalable Processors](https://www.intel.com/content/www/us/en/partner/workload/microsoft/mysql-performs-on-newer-azure-edv4-vms-benchmark.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/partner/workload/microsoft/mysql-performs-on-newer-azure-edv4-vms-benchmark.html">
+  <img src="https://github.com/intel/terraform-intel-azure-cassandra/images/mysql_edv4.png?raw=true" alt="Cassandra" width="600"/>
+  </a>
+</p>
+
+#### [Handle up to 1.36x More PostgreSQL Database Transactions on Microsoft® Azure® Ddsv4 Virtual Machines vs. Dsv3 VMs](https://www.intel.com/content/www/us/en/partner/workload/microsoft/more-postgresql-on-azure-ddsv4-vms-benchmark.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/partner/workload/microsoft/more-postgresql-on-azure-ddsv4-vms-benchmark.html">
+  <img src="https://github.com/intel/terraform-intel-azure-cassandra/images/postgresql_ddsv4.png?raw=true" alt="Cassandra" width="600"/>
+  </a>
+</p>
+
+</center>
 
 ## Usage
 
