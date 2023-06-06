@@ -48,6 +48,7 @@ resource "azurerm_cosmosdb_cassandra_cluster" "acc_cluster" {
   delegated_management_subnet_id = data.azurerm_subnet.acc_subnet.id
   default_admin_password         = var.acc_pswd
   version                        = var.acc_version
+  hours_between_backups          = var.hours_between_backups
 
   depends_on = [azurerm_role_assignment.acc_role]
   tags = local.tags

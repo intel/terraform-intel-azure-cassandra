@@ -100,3 +100,9 @@ variable "managed_disk_customer_key_uri" {
 description = "The key URI of the customer key to use for the encryption of the Managed Disk."
 default     = null
 }
+
+# Hours between backups
+variable "hours_between_backups" {
+  description = "Hours between backups"
+  default     = 0
+}

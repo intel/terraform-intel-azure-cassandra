@@ -8,7 +8,7 @@
 
 ## Azure Managed Instance for Apache Cassandra
 
- Module description
+**Please see ["Considerations"](https://github.com/intel/terraform-intel-azure-cassandra#considerations) section below for important information**
 
 ## Performance Data
 
@@ -102,11 +102,18 @@ terraform apply
 Note that this example may create resources. Run `terraform destroy` when you don't need these resources anymore.
 
 ## Considerations  
-This module example will take approx. 20+min to complete 
 
-Make sure that the "Azure Cosmos DB" prinicpal has not already been assigned the "Network Contributor" role to the vnet as this will assign it
+**TWO VERY IMPORTANT CONSIDERATIONS**
 
-More information regarding deploying Azure Managed Instance Apache Cassandra can be found here: [Azure Apache Cassandra] Datacenter(https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_datacenter)
+
+1. When using a **Service Principal**, it will require  ``` Application.Read.All ``` or ``` Directory.Read.All ``` Azure AD API permissions [see provider docs here](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal#:~:text=When%20authenticated%20with%20a%20service%20principal%2C%20this%20data%20source%20requires%20one%20of%20the%20following%20application%20roles%3A%20Application.Read.All%20or%20Directory.Read.All)
+2. Make sure the  ``` Azure Cosmos DB ``` Azure AD application has not already been assigned the ``` Network Contributor ``` role to the vnet as this will assign it
+3. It takes 15-30 minutes for the Cassandra Cluster to be created and ready for use
+
+
+
+
+More information regarding deploying Azure Managed Instance Apache Cassandra can be found here: [Azure Apache Cassandra Datacenter](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_datacenter)
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
