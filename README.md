@@ -103,7 +103,7 @@ Note that this example may create resources. Run `terraform destroy` when you do
 
 ## Considerations  
 
-**TWO VERY IMPORTANT CONSIDERATIONS**
+**THREE IMPORTANT CONSIDERATIONS**
 
 
 1. When using a **Service Principal**, it will require  ``` Application.Read.All ``` or ``` Directory.Read.All ``` Azure AD API permissions [see provider docs here](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal#:~:text=When%20authenticated%20with%20a%20service%20principal%2C%20this%20data%20source%20requires%20one%20of%20the%20following%20application%20roles%3A%20Application.Read.All%20or%20Directory.Read.All)
