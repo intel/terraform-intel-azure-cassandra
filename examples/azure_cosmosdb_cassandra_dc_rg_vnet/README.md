@@ -30,7 +30,7 @@ NOTE: Please be aware as of May 2023, there is a known discrepency between what 
 
 <p align="center">
   <a href="https://www.intel.com/content/www/us/en/partner/workload/microsoft/azure-dv4-vms-outperform-dv3-benchmark.html">
-  <img src="https://github.com/intel/terraform-intel-azure-cassandra/images/mysql_dv4.png?raw=true" alt="Cassandra" width="600"/>
+  <img src="https://github.com/intel/terraform-intel-azure-cassandra/blob/main/images/mysql_dv4.png?raw=true" alt="Cassandra" width="600"/>
   </a>
 </p>
 
@@ -40,7 +40,7 @@ NOTE: Please be aware as of May 2023, there is a known discrepency between what 
 
 <p align="center">
   <a href="https://www.intel.com/content/www/us/en/partner/workload/microsoft/mysql-performs-on-newer-azure-edv4-vms-benchmark.html">
-  <img src="https://github.com/intel/terraform-intel-azure-cassandra/images/mysql_edv4.png?raw=true" alt="Cassandra" width="600"/>
+  <img src="https://github.com/intel/terraform-intel-azure-cassandra/blob/main/images/mysql_edv4.png?raw=true" alt="Cassandra" width="600"/>
   </a>
 </p>
 
@@ -48,7 +48,7 @@ NOTE: Please be aware as of May 2023, there is a known discrepency between what 
 
 <p align="center">
   <a href="https://www.intel.com/content/www/us/en/partner/workload/microsoft/more-postgresql-on-azure-ddsv4-vms-benchmark.html">
-  <img src="https://github.com/intel/terraform-intel-azure-cassandra/images/postgresql_ddsv4.png?raw=true" alt="Cassandra" width="600"/>
+  <img src="https://github.com/intel/terraform-intel-azure-cassandra/blob/main/images/postgresql_ddsv4.png?raw=true" alt="Cassandra" width="600"/>
   </a>
 </p>
 
