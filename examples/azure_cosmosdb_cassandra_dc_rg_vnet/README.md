@@ -76,11 +76,6 @@ module "azure-acc-datacenter" {
   }
 }
 
-# Provision Intel Cloud Optimization Module
-module "module-example" {
-  source = "github.com/intel/module-name"
-}
-
 ```
 
 Run Terraform
