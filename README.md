@@ -10,7 +10,11 @@
 
 **Please see ["Considerations"](https://github.com/intel/terraform-intel-azure-cassandra#considerations) section below for important information**
 
+
+
 ## Performance Data
+
+This module was intended to be ran with an Intel Sentinel Policy as Code module that can be found here: https://registry.terraform.io/policies/intel/intel-azure/latest
 
 Azure Managed Instance Apache Cassandra SKU
 For Azure Managed Instance Data Center Supported Intel SKU are:
